@@ -1,10 +1,18 @@
+// layout file for the entire app
+// set rendering to client side
+"use client";
 import NavigationBar from "@/components/ui/NavigationBar";
+import "antd/dist/reset.css";
 import "./globals.css";
 import { Poppins } from "next/font/google";
-import Footer from "@/components/ui/Footer";
-import { Layout } from "antd";
 
-const { Content, Header } = Layout;
+import { StyleProvider } from "@ant-design/cssinjs";
+
+import { ConfigProvider, Layout } from "antd";
+
+const { Content, Footer } = Layout;
+
+// set app font
 const poppins = Poppins({
   weight: ["400", "700"],
   style: ["normal", "italic"],
@@ -17,19 +25,33 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  //children would be the react page components 
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <div className="flex flex-col h-screen">
-          <Layout>
-            <Header>
-              <NavigationBar />
-            </Header>
-          </Layout>
-          <NavigationBar />
-          <div className="flex grow">{children}</div>
-        </div>
-      </body>
-    </html>
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily: "poppins"
+        }
+      }}
+    >
+      {/* for to allow overriding styles */}
+      <StyleProvider hashPriortiy="high">
+        <html lang="en" className={poppins.className}>
+          <body>
+            <div className="flex flex-col h-screen">
+              <Layout>
+                <NavigationBar />
+                <Layout>
+                  <Content>{children}</Content>
+                </Layout>
+                <Footer className="p-4 border-t">
+                  Copyright © 2023 - All right reserved by WTA Industries Ltd
+                </Footer>
+              </Layout>
+            </div>
+          </body>
+        </html>
+      </StyleProvider>
+    </ConfigProvider>
   );
 }

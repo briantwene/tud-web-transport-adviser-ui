@@ -9,8 +9,10 @@ export const useTripStore = create()(
         setTrips: (trips) => set({ trips })
       }),
       {
-        name: "bear-storage"
+        name: "trip-store"
       }
     )
   )
 );
+
+

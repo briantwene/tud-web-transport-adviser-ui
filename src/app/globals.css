@@ -1,61 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.events li {
-  display: flex;
-}
-
-.events li:first-child {
-  margin-top: 1em;
-}
-
-.events time {
-  position: relative;
-  padding-right: 1.5em;
-}
-
-.events time::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  top: 0;
-  transform: translateX(50%);
-  border-radius: 50%;
-  background: #fff;
-  border: 1px #ccc solid;
-  width: 0.8em;
-  height: 0.8em;
-}
-
-.events span {
-  width: 100%;
-  padding: 0 1.5em 1.5em 1.5em;
-  position: relative;
-}
-
-.events span::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: 0;
+html {
   height: 100%;
-  border-left: 1px #ccc solid;
+}
+div.timeline_container div.ant-timeline-item-label {
+  width: calc(18% - 12px) !important;
 }
 
-.events strong {
-  display: block;
+div.timeline_container div.ant-timeline-item-content {
+  left: calc(19% - 4px) !important;
+  width: calc(79% - 4px) !important;
 }
 
-.events {
-  margin: 0em 0em 1em 1em;
-  height: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-.events,
-.events *::before,
-.events *::after {
-  box-sizing: border-box;
+div.timeline_container div.ant-timeline-item-tail,
+div.ant-timeline-item-head {
+  left: 19% !important;
 }

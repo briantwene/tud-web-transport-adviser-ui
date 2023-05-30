@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
+// no preferences component prop
 const NoPrefs = () => {
   return (
     <div className="flex flex-col mx-4">
